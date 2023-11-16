@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Example form elements -->
+<section class="create-polls"><h1 align="center">Create Polls</h1>
+
+    <form align="center" method="POST" id="pollForm">
+         
+        <!-- <p>[All Image File are <strong>optional</strong>]</p> -->
+
+        <div class="create">
+
+            <h4 class="build__question">Choose your <strong>Question</strong></h4>
+            <input type="text" name="question" placeholder="What's your favourite food?">
+            <!-- <input type="file"> -->
+        
+            <div class="create-option">
+                <p class="build__options"><strong>Option 1:</strong></p>
+                <!-- <input type="file" class="option__img"> -->
+                <input type="text" name="option_1" placeholder="Pizza">
+            </div>
+            
+            <div class="create-option">
+                <p class="build__options"><strong>Option 2:</strong></p>
+                <!-- <input type="file" class="option__img"> -->
+                <input type="text" name="option_2" placeholder="Sushi">
+            </div>
+            
+            <div class="create-option">
+                <p class="build__options"><strong>Option 3:</strong></p>
+                <!-- <input type="file" class="option__img" > -->
+                <input type="text" name="option_3" placeholder="Hamburger">
+            </div>
+            
+            <div class="create-option">
+                <p class="build__options"><strong>Option 4:</strong></p>
+                <!-- <input type="file" class="option__img"> -->
+                <input type="text" name="option_4" placeholder="Other">
+            </div>
+        </div>
+        
+        <div align="center">
+            <button type="submit" class="create-poll-btn">Create</button>
+        </div>
+    </form>
+</section>
+
+<!-- Create Polls -->
+<section class="vote" id="vote" align="center">
+    <h2><strong>Vote</strong> Polls</h2>
+    <p>Vote all existing polls</p>
+    <button class="vote-button"><a href="{{ url_for('views.vote') }}">Go</a></button>
+
+</section>
+
+<section class="my-polls">
+    <h1 align="center">My Polls</h1>
+    <!-- Search Bar -->
+    <br>
+    <div class="search-bar">
+        <input type="text" class="search-input" id="pollSearch" placeholder="Search my polls...">
+        <button  class="search__btn">Search</button>
+        <!-- Clear Filter Button -->
+        <button class="clear-filter__btn">Clear Filter</button>
+    </div>
+    <br>
+    <!-- Display Polls -->
+        {% for poll in user.polls %}
+        <div class="poll">
+
+            <div class="question">
+                {{ poll.question }}
+                <button type="button" class="close" onclick="deletePoll('{{ poll.id }}')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="answers">
+                <div class="answer" name="option_1" id="answer-0">
+                    {{ poll.option_1 }}
+                    <span class="percentage_bar"></span>
+                    <span class="percentage_value"></span>
+                </div>
+                <div class="answer" name="option_2" id="answer-1">
+                    {{ poll.option_2 }}
+                    <span class="percentage_bar"></span>
+                    <span class="percentage_value"></span>
+                </div>
+                {% if poll.option_3 %}
+                <div class="answer" name="option_3" id="answer-2">
+                    {{ poll.option_3 }}
+                    <span class="percentage_bar"></span>
+                    <span class="percentage_value"></span>
+                </div>
+                {% endif %}
+                {% if poll.option_4 %}
+                <div class="answer" name="option_4" id="answer-3">
+                    {{ poll.option_4 }}
+                    <span class="percentage_bar"></span>
+                    <span class="percentage_value"></span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="poll-info">
+                <p>Total Votes: 0</p>
+            </div>  
+        </div>
+        <br>
+        {% endfor %}
+</section>
+{% endblock %}
