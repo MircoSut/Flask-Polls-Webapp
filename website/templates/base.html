@@ -31,6 +31,8 @@
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link"id="home" href="/">Home</a>
                     <a class="nav-item nav-link"id="logout" href="/logout">Logout</a>
+                    <a class="nav-item nav-link"id="create" href="/create">Create</a>
+                    <a class="nav-item nav-link"id="vote" href="/vote">Vote</a>
                     {% else %}
                     <a class="nav-item nav-link"id="login" href="/login">Login</a>
                     <a class="nav-item nav-link"id="signUp" href="/sign-up">Sign Up</a>
@@ -52,7 +54,7 @@
             {% else %}
             <div class="alert alert-success alert-dimissable fade show" role="alert">
                 {{ message }}
-                <button type="button" class="close" data-dismiss="aler">
+                <button type="button" class="close" data-dismiss="alert">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
