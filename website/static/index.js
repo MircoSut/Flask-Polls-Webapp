@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to search and filter polls
   function searchPolls() {
     const searchTerm = searchInput.value.toLowerCase();
-    const pollElements = document.querySelectorAll(".poll");
+    const pollElements = document.querySelectorAll(".whole-poll");
 
     pollElements.forEach((pollElement) => {
       const pollText = pollElement.innerText.toLowerCase();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.value = ""; // Reset the search input value
 
     // Show all the polls (remove any filters)
-    const pollElements = document.querySelectorAll(".poll");
+    const pollElements = document.querySelectorAll(".whole-poll");
     pollElements.forEach((pollElement) => {
       pollElement.style.display = "block";
     });

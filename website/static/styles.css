@@ -73,10 +73,10 @@ form {
 .create-option::before {
     content: "";
     display:block;
-    width: 75%;
+    width: 50%;
     height:2px;
     margin: 0.5em auto 0;
-    background: currentColor;
+    background: var(--clr-accent2);
 }
 
 form h4 {
