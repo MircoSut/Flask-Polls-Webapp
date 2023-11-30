@@ -30,46 +30,51 @@
     <br>
     <!-- Display Polls -->
         {% for poll in user.polls %}
-        <div class="poll">
-
-            <div class="question">
-                {{ poll.question }}
-                <button type="button" class="close" onclick="deletePoll('{{ poll.id }}')">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="whole-poll">
+            <div class="information">
+                <h3><strong>{{ poll.title }}</strong></h3>
+                <h4>{{ poll.description }}</h4>
             </div>
             
-            <div class="answers">
-                <div class="answer" name="option_1" id="answer-0">
-                    {{ poll.option_1 }}
-                    <span class="percentage_bar"></span>
-                    <span class="percentage_value"></span>
+            <div class="poll">
+                <div class="question">
+                    {{ poll.question }}
+                    <button type="button" class="close" onclick="deletePoll('{{ poll.id }}')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="answer" name="option_2" id="answer-1">
-                    {{ poll.option_2 }}
-                    <span class="percentage_bar"></span>
-                    <span class="percentage_value"></span>
+                
+                <div class="answers">
+                    <div class="answer" name="option_1" id="answer-0">
+                        {{ poll.option_1 }}
+                        <span class="percentage_bar"></span>
+                        <span class="percentage_value"></span>
+                    </div>
+                    <div class="answer" name="option_2" id="answer-1">
+                        {{ poll.option_2 }}
+                        <span class="percentage_bar"></span>
+                        <span class="percentage_value"></span>
+                    </div>
+                    {% if poll.option_3 %}
+                    <div class="answer" name="option_3" id="answer-2">
+                        {{ poll.option_3 }}
+                        <span class="percentage_bar"></span>
+                        <span class="percentage_value"></span>
+                    </div>
+                    {% endif %}
+                    {% if poll.option_4 %}
+                    <div class="answer" name="option_4" id="answer-3">
+                        {{ poll.option_4 }}
+                        <span class="percentage_bar"></span>
+                        <span class="percentage_value"></span>
+                    </div>
+                    {% endif %}
                 </div>
-                {% if poll.option_3 %}
-                <div class="answer" name="option_3" id="answer-2">
-                    {{ poll.option_3 }}
-                    <span class="percentage_bar"></span>
-                    <span class="percentage_value"></span>
-                </div>
-                {% endif %}
-                {% if poll.option_4 %}
-                <div class="answer" name="option_4" id="answer-3">
-                    {{ poll.option_4 }}
-                    <span class="percentage_bar"></span>
-                    <span class="percentage_value"></span>
-                </div>
-                {% endif %}
+                <div class="poll-info">
+                    <p>Total Votes: 0</p>
+                </div>  
             </div>
-            <div class="poll-info">
-                <p>Total Votes: 0</p>
-            </div>  
         </div>
-        <br>
         {% endfor %}
 </section>
 {% endblock %}

@@ -59,15 +59,24 @@ form {
     border-radius: 10px;
     padding-bottom: 5px;
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.poll-description {
+    width:90%;
 }
 
 .create-option {
-    border: 2px solid var(--clr-light);
-    border-radius: 10px;
-    padding-bottom: 5px;
-    margin-top: 3px;
-    margin-bottom: 2px;
     line-height: 1;
+}
+
+.create-option::before {
+    content: "";
+    display:block;
+    width: 75%;
+    height:2px;
+    margin: 0.5em auto 0;
+    background: currentColor;
 }
 
 form h4 {
@@ -192,6 +201,14 @@ form p {
 }
 
 /* Polls */
+.whole-poll::after {
+    content: '';
+    display: block;
+    width:50%;
+    height:2px;
+    background: var(--clr-accent2);
+    margin: 1em auto;
+}
 
 .poll {
     background-color: var(--clr-light);

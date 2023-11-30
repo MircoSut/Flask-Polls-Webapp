@@ -42,6 +42,10 @@ def vote():
 @login_required
 def create():
     if request.method == "POST":
+
+        title = request.form.get("poll-title")
+        description = request.form.get("poll-description")
+
         question = request.form.get("question")
         option_1 = request.form.get("option_1")
         option_2 = request.form.get("option_2")
@@ -54,8 +58,14 @@ def create():
             flash("Option 1 and Option 2 are required.", category="error")
         elif not(option_2):
             flash("Option 1 and Option 2 are required.", category="error")
+        elif len(title) > 25:
+            flash("The title is too long", category="error")
+        elif len(description) > 250:
+            flash("The description is too long", category="error")
         else:
-            new_poll = Poll(question=question, 
+            new_poll = Poll(title=title,
+                            description=description,
+                            question=question, 
                             option_1 = option_1, 
                             option_2 = option_2, 
                             option_3 = option_3, 
