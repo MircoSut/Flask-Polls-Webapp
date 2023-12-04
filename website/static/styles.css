@@ -47,7 +47,7 @@ body {
     font-size: var(--fs-h1);
 }
 
-form {
+.create_form {
     background-color: var(--clr-accent1);
     padding: 20px 0px;
     margin: 0 0 8px 0;
@@ -79,12 +79,12 @@ form {
     background: var(--clr-accent2);
 }
 
-form h4 {
+.create_form h4 {
     color: var(--clr-dark);
     font-size: var(--fs-h3);
 }
 
-form p {
+.create_form p {
     color: var(--clr-dark);
     font-size: var(--fs-h4);
     padding: 8px 0 0 0;

@@ -35,7 +35,7 @@ def vote():
         if user:
             user_names[poll.id] = user.user_name
 
-
+    
     return render_template("vote.html", user=current_user, polls=polls, user_names=user_names)
 
 @views.route("create", methods=["GET", "POST"])
