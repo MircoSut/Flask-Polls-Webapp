@@ -41,6 +41,10 @@ body {
     background:var(--clr-light);
 }
 
+.flash_container {
+    margin-top: 50px;
+}
+
 /* Create Polls */
 
 .create-polls h1 {
